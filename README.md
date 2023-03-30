@@ -17,3 +17,8 @@ Installation
 - php artisan db:seed 
 
 - php artisan serve
+
+
+default pass : Password
+
+default user : Admin
