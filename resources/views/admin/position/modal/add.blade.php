@@ -5,7 +5,7 @@
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
             <div class="flex items-start justify-between p-5 border-b rounded-t">
                 <h3 class="text-xl font-semibold">
-                    Tambah Unit Baru
+                    Tambah Position Baru
                 </h3>
                 <button type="button" class="closeModal text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="add-user-modal">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"  @click="toggleModal">
@@ -14,16 +14,25 @@
                 </button>
             </div>
 
-            <form method="POST" action="{{route('unit.post')}}" >
+            <form method="POST" action="{{route('position.post')}}" >
                 @csrf
                 <div class="grid grid-cols-2 gap-6 p-4">
                     <div class="col-span-12 sm:col-span-3">
-                        <label for="first-name" class="text-sm font-medium text-gray-900 block mb-2">Nama Unit</label>
-                        <input type="text" name="name_unit" id="first-name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Ex: CSSD" required>
+                        <label for="unit" class="text-sm font-medium text-gray-900 block mb-2">Unit </label>
+                        <select name="unit" id="unit" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" required>
+                            <option value="">pilih unit</option>
+                            @foreach($units as $unit)
+                                <option value="{{$unit->id}}">{{$unit->unit_name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="col-span-12 sm:col-span-3">
-                        <label for="last-name" class="text-sm font-medium text-gray-900 block mb-2">Deskripsi Unit</label>
-                        <textarea name="desc_unit" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"></textarea>
+                        <label for="name_jabatan" class="text-sm font-medium text-gray-900 block mb-2">Nama Position</label>
+                        <input type="text" name="name_pos" id="name_jabatan" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="Ex: CSSD" required>
+                    </div>
+                    <div class="col-span-12 sm:col-span-3">
+                        <label for="desc_pos" class="text-sm font-medium text-gray-900 block mb-2">Deskripsi Position</label>
+                        <textarea name="desc_pos" id="desc_pos" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"></textarea>
                     </div>
                 </div>
                 <div class="items-center p-6 border-t border-gray-200 rounded-b">

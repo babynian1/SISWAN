@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Jabatan;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,8 +13,9 @@ class JabatanController extends Controller
     public function index(){
         if(Auth::check()){
             $positions = Jabatan::all();
+            $units = Unit::all();
 
-            return view('admin.position.index', compact('positions'));
+            return view('admin.position.index', compact('positions','units'));
         }
   
         return redirect("login")->withSuccess('Opps! kamu tidak memiliki akses!');
@@ -23,16 +25,18 @@ class JabatanController extends Controller
         if(Auth::check()){
             try {
                 $request->validate([
-                    'name_Jabatan' => 'required'
+                    'name_pos' => 'required',
+                    'unit' => 'required'
                 ]);
 
                 $store = Jabatan::create([
-                    'position_name' => $request->name_Jabatan,
-                    'description' => $request->desc_Jabatan,
+                    'position_name' => $request->name_pos,
+                    'description' => $request->desc_pos,
+                    'unit_id' => $request->unit
                 ]);
 
                 if($store){
-                    return redirect()->back()->with('success', 'Jabatan Berhasil di tambahkan ...');
+                    return redirect()->back()->with('success', 'Position Berhasil di tambahkan ...');
                 } 
 
                 return redirect()->back()->with('error', 'Terjadi kesalahan, silahkan refresh halaman dan coba lagi');

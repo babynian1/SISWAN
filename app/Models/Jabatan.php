@@ -13,6 +13,7 @@ class Jabatan extends Model
 
     protected $fillable = [
         'position_name',
-        'description'
+        'description',
+        'unit_id'
     ];
 }
