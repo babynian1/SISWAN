@@ -16,4 +16,8 @@ class Jabatan extends Model
         'description',
         'unit_id'
     ];
+
+    public function unit(){
+        return $this->hasOne(Unit::class, 'id');
+    }
 }

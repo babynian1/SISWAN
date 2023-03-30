@@ -14,4 +14,8 @@ class Unit extends Model
         'unit_name',
         'description'
     ];
+
+    public function position(){
+        return $this->belongsTo(Jabatan::class, 'unit_id');
+    }
 }

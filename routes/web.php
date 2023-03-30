@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::prefix('position')->group(function() {
         Route::get('/', [JabatanController::class, 'index'])->name('position');
         Route::post('/post', [JabatanController::class, 'store'])->name('position.post');
-        Route::post('/edit', [JabatanController::class, 'getUnit'])->name('position.edit');
+        Route::post('/edit', [JabatanController::class, 'getJabatan'])->name('position.edit');
         Route::post('/update', [JabatanController::class, 'update'])->name('position.update');
         Route::post('/delete', [JabatanController::class, 'destroy'])->name('position.delete');
     });

@@ -12,9 +12,10 @@ class JabatanController extends Controller
 {
     public function index(){
         if(Auth::check()){
-            $positions = Jabatan::all();
+            $positions = Jabatan::with('unit')->get();
             $units = Unit::all();
 
+           
             return view('admin.position.index', compact('positions','units'));
         }
   
