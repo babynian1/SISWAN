@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+    font-family: Poppins, sans-serif;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.overlay {
+    position: relative; 
+}
+
+/* 1024 -1 so it doesnt show when it hits 1024px */
+@media only screen and (max-width: 1023px) {
+    .overlay:after {
+        content: " ";
+        z-index: 29;
+        display: block;
+        height: 100%;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+        position: fixed;
+    }
+}
+
+textarea:focus, input:focus{
+    outline: none!important;
+    border: none!important;
+    box-shadow: none!important;
+}
+.v3dp__datepicker input {
+    border: none;
+    max-width: 130px;
+}
+.btn {
+    border-radius: 10px;
+    font-size: 10pt;
+}
+.btn-success {
+    border: 1px solid #1F4372;
+    background-color: #ECFFEB;
+    color: #1F4372;
+    font-size: 10pt;
+    padding: 9px 32px;
+}
+.btn-success-solid {
+    border: 1px solid #1F4372;
+    background-color: #1F4372;
+    color: #FFFFFF;
+    font-size: 10pt;
+    padding: 9px 32px;
+}
+.btn-danger {
+    border: 1px solid #FFEBEB;
+    background-color: #FFEBEB;
+    color: #BADEF4;
+    padding: 12px;
+}
+.btn-success-outline {
+    border: 1px solid #1F4372;
+    background-color: #FFFFFF;
+    color: #1F4372;
+    font-size: 10pt;
+    padding: 9px 32px;
+}
+.btn-disabled {
+    border: 1px solid #F9F9F9;
+    background-color: #F9F9F9;
+    color: #c0c0c0;
+    font-size: 10pt;
+    padding: 9px 32px;
+}
+
+/* Bottom Sheet */
+.bottomsheet {
+    z-index: 101;
+    box-shadow: 0px 8px 20px #0000004D;
+    /* height: calc(100% - 100px); */
+}
+.overlay {
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000099;
+    z-index: 100;
+    position: fixed;
+    overflow: hidden;
+}
+
+input[type="checkbox"]:disabled {
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.lab-table tr td, .lab-table tr th {
+    white-space: nowrap;
+    vertical-align: middle!important;
+}
+
+.lab-table hr {
+    color: #000;
+    background-color: #000;
+    border-top: 1px solid #000;
+    border-bottom: none;
+}
+
+/* vue good table table style */
+.vgt-table tr th, .vgt-table tr td {
+    vertical-align: middle!important;
+}
+.vgt-table tr td div, .vgt-table tr td span, .vgt-table tr th span {
+    white-space: nowrap;
+}
+
+/* vue select */
+.v-select {
+    min-width: 150px;
+}
+
+.vs__dropdown-menu {
+    width: auto!important;
+}
