@@ -16,6 +16,10 @@ class Unit extends Model
     ];
 
     public function position(){
-        return $this->belongsTo(Jabatan::class, 'unit_id');
+        return $this->hasMany(Jabatan::class, 'id');
+    }
+
+    public function employee(){
+        return $this->hasMany(Employee::class, 'id');
     }
 }

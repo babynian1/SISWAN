@@ -15,7 +15,6 @@ class JabatanController extends Controller
             $positions = Jabatan::with('unit')->get();
             $units = Unit::all();
 
-           
             return view('admin.position.index', compact('positions','units'));
         }
   
@@ -73,8 +72,9 @@ class JabatanController extends Controller
                 $id = $request->id;
         
                 $positions = Jabatan::where('id', $id)->update([
-                    'position_name' => $request->name_Jabatan,
-                    'description' => $request->desc_Jabatan,
+                    'unit_id' => $request->unit,
+                    'position_name' => $request->name_pos,
+                    'description' => $request->desc_pos,
                 ]);
                 
                 if($positions){
@@ -83,7 +83,7 @@ class JabatanController extends Controller
 
                 return redirect()->back()->with('error', 'Terjadi kesalahan, silahkan refresh halaman dan coba lagi');
             } catch (\Throwable $th) {
-                return redirect()->back()->with('success', 'Opps!, kamu tidak memiliki akses!');
+                return redirect()->back()->with('error', 'Opps!, Terjadi kesalahan, silahkan refresh halaman dan coba lagi!');
             }
         } 
         return redirect()->back()->with('success', 'Opps!, kamu tidak memiliki akses!');

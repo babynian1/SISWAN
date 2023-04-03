@@ -137,10 +137,10 @@
                 if(res.success){
                     new_data = res.data;
                     $("#uid").val(new_data.id);
-                    console.log(new_data.unit_id);
                     $('#unit_edit').val(new_data.unit_id);
+                    $('#unit_edit').trigger('change');
                     $('#pos_edit').val(new_data.position_name);
-                    $('#desc_pos').val(new_data.description);
+                    $('#desc_pos_edit').val(new_data.description);
                     $('#editUnit').removeClass('invisible');
                 } else {
                     console.log(res);

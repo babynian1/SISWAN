@@ -20,4 +20,9 @@ class Employee extends Model
         'foto'
     ];
 
+
+    public function unit(){
+        return $this->belongsTo(Unit::class, 'unit_id');
+    }
+
 }

@@ -14,7 +14,7 @@
                 </button>
             </div>
 
-            <form method="POST" action="{{route('unit.update')}}">
+            <form method="POST" action="{{route('position.update')}}">
                 @csrf
                 <input type="hidden" name="id" id="uid">
                 <div class="grid grid-cols-2 gap-6 p-4">
@@ -33,11 +33,11 @@
                     </div>
                     <div class="col-span-12 sm:col-span-3">
                         <label for="desc_unit" class="text-sm font-medium text-gray-900 block mb-2">Deskripsi Position</label>
-                        <textarea name="desc_pos" id="desc_pos" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"></textarea>
+                        <textarea name="desc_pos" id="desc_pos_edit" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"></textarea>
                     </div>
                 </div>
                 <div class="items-center p-6 border-t border-gray-200 rounded-b">
-                    <button class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="submit">Tambah Unit</button>
+                    <button class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="submit">Edit Position</button>
                 </div>
             </form>
         </div>

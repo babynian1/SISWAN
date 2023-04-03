@@ -18,6 +18,8 @@ class Jabatan extends Model
     ];
 
     public function unit(){
-        return $this->hasOne(Unit::class, 'id');
+        return $this->belongsTo(Unit::class, 'unit_id');
     }
+
+
 }

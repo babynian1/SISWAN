@@ -39,6 +39,11 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::prefix('employee')->group(function() {
         Route::get('/', [EmployeeController::class, 'index'])->name('employee');
+        Route::post('/position', [EmployeeController::class, 'get_position'])->name('employee.position');
+        Route::post('/store', [EmployeeController::class, 'store'])->name('employee.post');
+        Route::post('/update', [EmployeeController::class, 'update'])->name('employee.update');
+        Route::post('/edit', [EmployeeController::class, 'edit'])->name('employee.edit');
+        Route::post('/destroy', [EmployeeController::class, 'destroy'])->name('employee.delete');
 
     });
 

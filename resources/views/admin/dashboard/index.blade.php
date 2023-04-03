@@ -1,5 +1,5 @@
 @extends('layout.template')
-
+@section('title', 'Dashboard')
 @section('content')
 <div class="pt-6 px-4">
     <div class=" w-full grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 my-4">
@@ -9,7 +9,6 @@
                     <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">{{$count_emp}}</span>
                     <h3 class="text-base font-normal text-gray-500">Total Karyawan </h3>
                 </div>
-
             </div>
         </div>
         <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
